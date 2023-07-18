@@ -1,0 +1,41 @@
+version: '3.9'
+services:
+  database:
+    image: postgres:15.2
+    container_name: postgres_database_Graid_Rails
+    ports:
+      - 5431:5432
+    restart: "no"
+    environment:
+      POSTGRES_USER: Graid_Rails
+      POSTGRES_PASSWORD: Graid_Rails
+      POSTGRES_DB: Graid_Rails
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  databaseTest:
+    image: postgres:15.2
+    container_name: postgres_database_Graid_Rails-Test
+    ports:
+      - 5437:5432
+    restart: "no"
+    environment:
+      POSTGRES_USER: Graid_RailsTest
+      POSTGRES_PASSWORD: Graid_RailsTest
+      POSTGRES_DB: Graid_RailsTest
+    volumes:
+      - postgres_dataTest:/var/lib/postgresql/data
+
+      # Graid_Rails:
+    #   image: Graid_Rails
+    #   build:
+    #     context: .
+    #     dockerfile: Graid_Rails.API/Dockerfile
+    #   depends_on:
+    #   - database
+    #   ports:
+    #   - 8080:80
+
+volumes:
+  postgres_data:
+  postgres_dataTest:
