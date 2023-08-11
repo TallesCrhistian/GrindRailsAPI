@@ -60,7 +60,7 @@ namespace GrindRailsAPI.Identity.Services
 
                 serviceResponseDTO.GenericData = userViewModel;
                 serviceResponseDTO.StatusCode = Convert.ToInt32(HttpStatusCode.Created);
-                serviceResponseDTO.Message = CreatedMessages.UserCreated;
+                serviceResponseDTO.Message = OkCreatedMessages.UserCreated;
                 serviceResponseDTO.Sucess = true;
 
                 await _iWorkUnitIdentity.SaveChangesAsync();
